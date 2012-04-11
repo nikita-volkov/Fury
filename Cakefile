@@ -1,13 +1,12 @@
 ChildProcess = require 'child_process'
 
-task "run", "", ->
+task "build", "compile to javascript and perform npm-install", ->
+  compile -> npmInstall ->
+
+task "run", "build and execute", ->
   compile -> npmInstall -> run "lib/Main.js"
 
-task "test", "", ->
-  test ->
 
-test = (cb) ->
-  executeAndOutput "robusta-doc-test -p; robusta-test -p", cb
 
 npmInstall = (cb) ->
   executeAndOutput "npm install", cb

@@ -16,7 +16,6 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "robusta-doc-test -p"
   },
   "dependencies": {
   },

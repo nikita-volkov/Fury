@@ -1,7 +1,7 @@
 {
   "author": "Nikita Volkov <nikita.y.volkov@mail.ru> (http://www.flipart.ru)",
   "name": "Fury",
-  "description": "A library of higher order functions for function composing, overloading, asynchronity and other",
+  "description": "A library of higher order functions for function composing, overloading, asynchronicity and other",
   "keywords": ["functional", "higher order", "library", "composing", "overloading", "partial application", "async", "coffeescript", "haskell"],
   "version": "0.1.0",
   "homepage": null,

@@ -54,15 +54,16 @@ func = (template) ->
   # [head, tail...] = template
   if head instanceof Function.Function
     Function.partiallyApplied (composed tail), head
-  else if isTemplate head
+  else if isCorrect head
     Array.reduced Function.nested, (composed template)
   else throw "Incorrect template"
 
 composed = (xs) ->
   for x in xs
-    if isTemplate x then func x else x
+    if isCorrect x then func x else x
     
-isTemplate = (x) -> 
+exports.isCorrect = 
+isCorrect = (x) -> 
   (x instanceof Array.Array) && 
   (x.length != 0) &&
-  ((x[0] instanceof Function.Function) || isTemplate x[0])
+  ((x[0] instanceof Function.Function) || isCorrect x[0])

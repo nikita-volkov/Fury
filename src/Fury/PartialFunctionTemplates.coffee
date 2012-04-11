@@ -17,12 +17,14 @@ results = (args, templates) ->
     switch PartialFunctionTemplateTerm.type term
       when "predicate"
         if term.apply this, args
-          f.apply this, args
+          return f.apply this, args
       when "types"
         if argsMatchTypes types, args
-          f.apply this, args
+          return f.apply this, args
       when "argsNum"
         throw "Unimplemented: support for argsNum"
+      when "any"
+        return f.apply this, args
       else 
         throw "Unsupported type"
   throw "Partial function condition not met"

@@ -12,7 +12,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://raw.github.com/nikita-volkov/Fury/master/LICENSE"
+      "url": "https://raw.github.com/nikita-volkov/Fury/master/LICENSE"
     }
   ],
   "main": "lib/Fury.js",

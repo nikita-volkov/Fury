@@ -1,3 +1,7 @@
+###
+Could be renamed to OverloadingTemplate... or not
+
+###
 {isInstanceOf} = require "./Object"
 
 exports.partialFunction = 

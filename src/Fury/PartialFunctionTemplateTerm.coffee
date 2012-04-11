@@ -8,3 +8,5 @@ type = (term) ->
     "types"
   else if isInstanceOf Number, term
     "argsNum"
+  else if !term?
+    "any"

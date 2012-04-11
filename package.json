@@ -1,14 +1,20 @@
 {
   "author": "Nikita Volkov <nikita.y.volkov@mail.ru> (http://www.flipart.ru)",
   "name": "Fury",
-  "description": "A library of higher order functions for function composing, overloading, asynchronity and other",
-  "keywords": ["functional", "higher order", "library", "composing", "overloading", "async", "coffeescript"],
+  "description": "A library of higher order functions for function composing, overloading, asynchronicity and other",
+  "keywords": ["functional", "higher order", "library", "composing", "overloading", "partial application", "async", "coffeescript", "haskell"],
   "version": "0.1.0",
   "homepage": null,
   "repository": {
     "type": "git",
-    "url": null
+    "url": "http://github.com/nikita-volkov/Fury"
   },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://raw.github.com/nikita-volkov/Fury/master/LICENSE"
+    }
+  ],
   "main": "lib/Fury.js",
   "bin": {
   },
@@ -16,7 +22,6 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "robusta-doc-test -p"
   },
   "dependencies": {
   },

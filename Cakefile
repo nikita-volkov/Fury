@@ -1,19 +1,25 @@
-{exec} = require 'child_process'
+ChildProcess = require 'child_process'
 
-task "run", "", ->
+task "build", "compile to javascript and perform npm-install", ->
+  compile -> npmInstall ->
+
+task "run", "build and execute", ->
   compile -> npmInstall -> run "lib/Main.js"
 
+
+
 npmInstall = (cb) ->
-  exec1 "npm install", cb
+  executeAndOutput "npm install", cb
 
 compile = (cb) ->
-  exec1 "coffee -c -o lib src", cb
+  executeAndOutput "coffee -c -o lib src", cb
 
 run = (file, cb) ->
-  exec1 "node #{file}", cb
+  executeAndOutput "node #{file}", cb
 
-exec1 = (cmd, cb) ->
-  exec cmd, (error, stdout, stderr) ->
+
+executeAndOutput = (cmd, cb) ->
+  ChildProcess.exec cmd, (error, stdout, stderr) ->
     if error 
       console.error error.stack
     else 

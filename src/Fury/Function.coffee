@@ -22,8 +22,8 @@ partiallyApplied = (args, f) ->
   ###
   withLength f.length - args.length, ->
     args1 = []
-    args1.push(arg) for arg in args
-    args1.push(arg) for arg in arguments
+    args1.push arg for arg in args
+    args1.push arg for arg in arguments
     f.apply this, args1
 
 exports.withLength =
@@ -37,3 +37,38 @@ withLength = (length, f) ->
     }
     """
   (new Function "f", body) f
+
+exports.partial = 
+partial = (predicate, f) ->
+  ###
+  A partial function conditioned by the predicate.
+
+  Probably useless
+  ###
+  withLength f.length, ->
+    if predicate.apply this, arguments
+      f.apply this, arguments
+    else
+      throw "Partial function condition not met"
+
+
+exports.async = 
+async = (f) ->
+  ###
+  TESTS:
+    add = async (y, x, cb) -> cb x + y
+    @resultEquals 5, (cb) -> add 2, 3, cb
+  ###
+  -> callAsync partiallyApplied arguments, f
+
+exports.callAsync = 
+callAsync = (f) ->
+  if process? && process.nextTick then process.nextTick f
+  else setTimeout f, 0
+  return
+
+exports.action = 
+action = (f) ->
+  async (args..., cb) ->
+    cb f.apply this, args
+

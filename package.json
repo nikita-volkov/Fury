@@ -7,8 +7,14 @@
   "homepage": null,
   "repository": {
     "type": "git",
-    "url": null
+    "url": "http://github.com/nikita-volkov/Fury"
   },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://raw.github.com/nikita-volkov/Fury/master/LICENSE"
+    }
+  ],
   "main": "lib/Fury.js",
   "bin": {
   },

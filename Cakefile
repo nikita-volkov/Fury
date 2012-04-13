@@ -9,7 +9,7 @@ task "run", "build and execute", ->
   clean -> compile -> npmInstall -> run ->
 
 task "publish", "build and publish to npm registry", ->
-  clean -> compile -> npmInstall -> npmPublish ->
+  clean -> compile -> npmPublish ->
 
 task "clean", "clean the lib folder", ->
   clean ->

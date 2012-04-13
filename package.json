@@ -22,9 +22,11 @@
     "lib": "lib"
   },
   "scripts": {
+    "test": "fuell-doc-test"
   },
   "dependencies": {
   },
   "devDependencies": {
+    "FuellDocTest": "0.3.x"
   }
 }

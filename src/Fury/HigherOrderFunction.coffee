@@ -1,4 +1,4 @@
-FunctionTemplate = require "./FunctionTemplate"
+ComposedFunctionTemplate = require "./ComposedFunctionTemplate"
 
 exports.composable = 
 composable = (f) ->
@@ -21,7 +21,7 @@ composableByPositions = (positions, f) ->
     newArgs = []
     for v, i in arguments
       if i in positions && v not instanceof Function
-        newArgs.push FunctionTemplate.func v 
+        newArgs.push ComposedFunctionTemplate.func v 
       else 
         newArgs.push v
     f.apply this, newArgs

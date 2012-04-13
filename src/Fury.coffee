@@ -1,14 +1,14 @@
-Function                  = require "./Fury/Function"
-FunctionTemplate          = require "./Fury/FunctionTemplate"
-HigherOrderFunction       = require "./Fury/HigherOrderFunction"
-PartialFunctionTemplates  = require "./Fury/PartialFunctionTemplates"
-Template                  = require "./Fury/Template"
+Function                    = require "./Fury/Function"
+HigherOrderFunction         = require "./Fury/HigherOrderFunction"
+ComposedFunctionTemplate    = require "./Fury/ComposedFunctionTemplate"
+OverloadedFunctionTemplate  = require "./Fury/OverloadedFunctionTemplate"
+Template                    = require "./Fury/Template"
 
 exports[k] = v for k, v of {
   Function
-  FunctionTemplate
   HigherOrderFunction
-  PartialFunctionTemplates
+  ComposedFunctionTemplate
+  OverloadedFunctionTemplate
 }
 
 exports[k] = v for k, v of Function
@@ -16,7 +16,7 @@ exports[k] = v for k, v of Function
 exports[k] = v for k, v of HigherOrderFunction
 
 exports.partialFunction = 
-partialFunction = PartialFunctionTemplates.partialFunction
+partialFunction = OverloadedFunctionTemplate.partialFunction
 
 
 exports.func = 

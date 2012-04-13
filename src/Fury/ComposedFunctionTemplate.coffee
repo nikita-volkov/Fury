@@ -56,7 +56,7 @@ func = (template) ->
     Function.partiallyApplied (composed tail), head
   else if isCorrect head
     Array.reduced Function.nested, (composed template)
-  else throw "Incorrect template"
+  else throw "Incorrect composed function template"
 
 composed = (xs) ->
   for x in xs

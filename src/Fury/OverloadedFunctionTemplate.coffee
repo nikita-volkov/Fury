@@ -1,7 +1,5 @@
 ###
-Could be renamed to OverloadingTemplate... or not
-or FunctionByTermPairs
-
+OverloadedFunctionTemplate is an alias for PartialFunctionTemplates. Since PartialFunctionTemplate is not implemented being considered useless, this title seems less confusing.
 ###
 {isInstanceOf} = require "./Object"
 PartialFunctionTemplateTerm = require "./PartialFunctionTemplateTerm"

@@ -18,7 +18,7 @@ task "clean", "clean the lib folder", ->
 ### Actions ###
 
 clean = (cb) ->
-  removeDirContents "lib"
+  removeDirContents "lib", cb
 
 npmPublish = (cb) ->
   executeAndOutput "npm publish", cb

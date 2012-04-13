@@ -1,9 +1,5 @@
-###
-OverloadedFunctionTemplate is an alias for PartialFunctionTemplates. Since PartialFunctionTemplate is not implemented being considered useless, this title seems less confusing.
-###
 {isInstanceOf} = require "./Object"
 PartialFunctionTemplateTerm = require "./PartialFunctionTemplateTerm"
-
 
 exports.partialFunction = 
 partialFunction = (templates) ->
@@ -73,10 +69,74 @@ partialFunction = (templates) ->
 
 exports.func = 
 func = (templates) ->
+  ###
+  TESTS:
+    - an overloaded by length number writer
+      f = func [
+        [2, (a, b) -> a + b]
+        [4, (a, b, c, d)-> a + b + c + d]
+      ]
+      @equals 3, f 1, 2
+      @equals 10, f 1, 2, 3, 4
+      @fails -> f()
+      @fails -> f 1
+      @fails -> f 1, 2, 3
+      @fails -> f 1, 2, 3, 4, 5
+      @fails -> f 1, 2, 3, 4, 5, 6
+
+    - an overloaded by types array or string joiner
+      f = func [
+        [[String, String], (ys, xs) -> xs + ys]
+        [[Array, Array], (ys, xs) -> xs.concat ys]
+      ]
+      @equals "abcd", f "cd", "ab"
+      @equals [1,2,3,4,5], f [3, 4, 5], [1, 2]
+      @fails -> f 2, 4
+      @fails -> f "ds"
+      @fails -> f "1", "a", "c"
+
+    - an overloaded by types of different length function
+      f = func [
+        [[String, String], -> "2 strings"],
+        [[Array], -> "1 array"]
+      ]
+      @equals "2 strings", f "", ""
+      @equals "1 array", f [2]
+
+    - ignores parameter if type for it is null
+      f = func [
+        [[null, String], -> "ok"]
+      ]
+      @equals "ok", f 2, ""
+      @equals "ok", f "2", ""
+
+    - does not ignore specified parameters
+      f = func [
+        [[null, String], -> "ok"]
+      ]
+      @fails -> f 2, 2
+
+    - treats empty parameters list correctly
+      f = func [
+        [[], -> 1]
+      ]
+      @equals 1, f()
+      @fails -> f 1
+
+    - counts trailing null parameters
+      f = func [
+        [[null], -> 1]
+        [[String, null], -> 2]
+      ]
+      @equals 1, f 0
+      @equals 2, f "0", ""
+  ###
   -> 
     try results arguments, templates
     catch e 
-      if e != "Partial function condition not met"
+      if e == "Partial function condition not met"
+        throw "Arguments aren't applicable to this overloaded function"
+      else
         throw e
 
 results = (args, templates) ->

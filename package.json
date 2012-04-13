@@ -3,7 +3,7 @@
   "name": "Fury",
   "description": "A library of higher order functions for function composing, overloading, asynchronicity and other",
   "keywords": ["functional", "higher order", "library", "composing", "overloading", "partial application", "async", "coffeescript", "haskell"],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": null,
   "repository": {
     "type": "git",

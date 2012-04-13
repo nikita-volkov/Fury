@@ -1,5 +1,6 @@
 ###
 Could be renamed to OverloadingTemplate... or not
+or FunctionByTermPairs
 
 ###
 {isInstanceOf} = require "./Object"
